@@ -1,12 +1,8 @@
 package sem2;
 
-public interface ActorBehavior {
+public interface ActorBehaviour {
     void setMakeOrder(boolean makeOrder);
-
     void setTakeOrder(boolean pickUpOrder);
-
     boolean isMakeOrder();
-
     boolean isTakeOrder();
-    
 }
