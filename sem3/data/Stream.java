@@ -3,8 +3,6 @@ package sem3.data;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.text.html.HTMLDocument.Iterator;
-
 public class Stream implements Iterable<StudentGroup> {
 
     private List<StudentGroup> groups;
@@ -19,6 +17,10 @@ public class Stream implements Iterable<StudentGroup> {
 
     public List<StudentGroup> getGroups(){
         return groups;
+    }
+
+    public int getLengthGroups(){
+        return groups.size();
     }
 
     @Override
