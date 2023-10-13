@@ -13,8 +13,8 @@ public class Stream implements Iterable<StudentGroup> {
         groups = new ArrayList<>();
     }
 
-    public void setGroup(StudentGroup group) {
-        groups.add(group);
+    public void addGroup (StudentGroup group) {
+       groups.add(group);
     }
 
     public List<StudentGroup> getGroups(){
@@ -22,8 +22,7 @@ public class Stream implements Iterable<StudentGroup> {
     }
 
     @Override
-    public Iterator<StudentGroup> iterator(){
-        return groups.iterator();
+    public StreamIterator iterator(){
+        return new StreamIterator(this);
     }
-    
 }
