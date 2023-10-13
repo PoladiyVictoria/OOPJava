@@ -4,6 +4,7 @@ import sem3.data.Student;
 import sem3.data.Teacher;
 import sem3.data.User;
 import sem3.service.DataService;
+import sem3.service.StreamService;
 import sem3.service.StudentGroupService;
 import sem3.view.UserView;
 
@@ -15,7 +16,9 @@ public class UserController {
     private final DataService dataService = new DataService();
     private final StudentGroupService studentGroupService = new StudentGroupService();
     private final UserView userView = new UserView();
+    private final StreamService streamService = new StreamService();
 
+   
     public void createStudent(String firstName, String secondName, String patronymic, LocalDate dateOfBirth){
         dataService.create(firstName, secondName, patronymic, dateOfBirth);
         List<User> userList = dataService.getAll();
@@ -36,5 +39,9 @@ public class UserController {
 
     public List<Student> getSortedListByFIOStudentFromStudentGroup(){
         return studentGroupService.getSortedByFIOStudentGroup();
+    }
+
+     public List<StreamService> getSortedListStream(){
+        return streamService.getSortedStreams();
     }
 }
