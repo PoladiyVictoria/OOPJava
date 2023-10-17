@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import sem3.data.Teacher;
+import sem4.data.Teacher;
 
 public class TeacherService implements UserService<Teacher>{
     
@@ -30,5 +30,39 @@ public class TeacherService implements UserService<Teacher>{
         countMaxId++;
         Teacher teacher = new Teacher(firstName, secondName, patronymic, dateOfBirth);
         teachers.add(teacher);
+    }
+    
+    public Teacher getTeacherFromSystem(String firstName, String secondName){
+        List<Teacher> res = new ArrayList<>();
+        for (Teacher teacher : teachers) {
+            if (teacher.getFirstName().equalsIgnoreCase(firstName)
+            && teacher.getSecondName().equalsIgnoreCase(secondName)) {
+                res.add(teacher);
+            }
+        }
+        if(res.size() == 0){
+            throw new IllegalStateException(
+                    String.format("Учитель с именем %s и фамилией %s не найден", firstName, secondName)
+            );
+        }
+        if(res.size() != 1){
+            throw new IllegalStateException("Найдено более одного учителя с указанными именем и фамилией");
+        }
+        return res.get(0);
+    }
+    
+    public void removeTeacher(String firstName, String secondName){
+        for (Teacher teacher : teachers) {
+            if (teacher.getFirstName().equalsIgnoreCase(firstName)
+            && teacher.getSecondName().equalsIgnoreCase(secondName)) {
+                teachers.remove(teacher);
+            }
+        }
+    }
+
+    public List<Teacher> addTeacher(String firstName, String secondName, String patronymic, LocalDate dateOfBirth){
+        Teacher newTeacher = new Teacher(firstName, secondName, patronymic, dateOfBirth);
+        teachers.add(newTeacher);
+        return teachers;
     }
 }
