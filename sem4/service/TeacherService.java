@@ -60,9 +60,9 @@ public class TeacherService implements UserService<Teacher>{
         }
     }
 
-    public List<Teacher> addTeacher(String firstName, String secondName, String patronymic, LocalDate dateOfBirth){
+    public void addTeacher(String firstName, String secondName, String patronymic, LocalDate dateOfBirth){
         Teacher newTeacher = new Teacher(firstName, secondName, patronymic, dateOfBirth);
         teachers.add(newTeacher);
-        return teachers;
+        
     }
 }

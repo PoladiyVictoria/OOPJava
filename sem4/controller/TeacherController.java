@@ -2,6 +2,7 @@ package sem4.controller;
 
 import java.time.LocalDate;
 import java.util.Collections;
+import java.util.Scanner;
 
 import sem4.data.Teacher;
 import sem4.service.TeacherService;
@@ -22,7 +23,15 @@ public class TeacherController implements UserController<Teacher>{
         teacherView.sendOnConsole(Collections.singletonList(teacher));
     }
 
-    public void changeSomeTeacher(){
-        teacherService.removeTeacher(firstName, secondName);
+    public void changeSomeTeacher(String firstName, String secondName, String patronymic, LocalDate dateOfBirth){
+        Scanner in = new Scanner(System.in);
+        System.out.println("Введите Имя и Фамилию учителя которого хотите поменять!");
+        System.out.print("Введите Имя: ");
+        String fName = in.next();
+        System.out.print("Введите Фамилию: ");
+        String sName = in.next();
+        teacherService.removeTeacher(fName, sName);
+        teacherService.addTeacher(firstName, secondName, patronymic, dateOfBirth);
+        teacherView.sendOnConsole(teacherService.getAll());
     }
 }
