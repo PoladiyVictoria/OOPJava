@@ -3,6 +3,7 @@ package Controler;
 import Data.Type;
 import Data.User;
 import Data.Student;
+import Data.StudentGroup;
 import Data.Teacher;
 import Service.DataService;
 import Service.StudentGroupService;
@@ -34,11 +35,15 @@ public class Controler {
         service.create(firstName,secondName,lastName,dateB, Type.TEACHER);
     }
 
-
-
     public void createStudentGroup(Teacher teacher){
         List<Student> students = stGroupService.getSomeStudents();
         stGroupService.createStudentGroup(teacher, students);
-        
     }
+
+    public void printStudentGroup(){
+        StudentGroup stGr = stGroupService.getStudentGroup();
+        stGroupView.printOnConsole(stGr);
+    }
+
+
 }
