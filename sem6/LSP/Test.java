@@ -2,6 +2,7 @@ package LSP;
 
 public class Test {
     public static void main(String[] args) {
+        //Создана переменная типа QuadRangle, которой присваивается и создается тип Rectangle
         QuadRangle quadRangle = new Rectangle(5, 3);
         System.out.println("Rectangle" + " " + quadRangle.area());
         quadRangle = new Square(5);
