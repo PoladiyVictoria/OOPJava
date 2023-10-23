@@ -1,5 +1,7 @@
 package SRP;
 
+//Создан класс Employee (Сотрудник) который предназначен только для получения точных данных сотрудника. 
+//Эти данные могут быть применимы для всех сотрудников
 public class Employee {
     private String name;
     private String dol;
@@ -18,7 +20,7 @@ public class Employee {
     public void setDol(String dol) {
         this.dol = dol;
     }
-
+//Конструктор класса Employee
     public Employee(String name, String dol) {
         this.name = name;
         this.dol = dol;
