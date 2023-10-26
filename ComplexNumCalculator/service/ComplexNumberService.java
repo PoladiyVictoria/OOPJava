@@ -43,5 +43,14 @@ public class ComplexNumberService implements ComplexNumber {
                 / ((other.getRealPart() * other.getRealPart()) + (other.getImaginaryPart() * other.getImaginaryPart()));
         return new ComplexNumberService(real, imaginary);
     }
+
+    @Override
+    public String toString() {
+        return "ComplexNumber{" +
+                realPart + '+' +
+                imaginaryPart +
+                '}';
+    }
 }
+
 

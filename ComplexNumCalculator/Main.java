@@ -19,8 +19,8 @@ public class Main {
         ComplexNumber product = calculator.multiply(num1, num2);
         ComplexNumber quotient = calculator.divide(num1, num2);
     
-        System.out.println("Сумма " + sum);
-        System.out.println("Произведение " + product);
-        System.out.println("Результат деления " + quotient);
+        System.out.println("Сумма " + sum.toString());
+        System.out.println("Произведение " + product.toString());
+        System.out.println("Результат деления " + quotient.toString());
     }
 }
