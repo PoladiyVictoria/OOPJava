@@ -1,12 +1,13 @@
 package ComplexNumCalculator.service;
 
 import ComplexNumCalculator.data.ComplexNumber;
+import ComplexNumCalculator.data.SumComplexNumber;
 
-public class ComplexNumberService implements ComplexNumber {
+public class SumComplexNumberService implements SumComplexNumber {
     private double realPart;
     private double imaginaryPart;
 
-    public ComplexNumberService(double realPart, double imaginaryPart) {
+    public SumComplexNumberService(double realPart, double imaginaryPart) {
         this.realPart = realPart;
         this.imaginaryPart = imaginaryPart;
     }
@@ -21,14 +22,18 @@ public class ComplexNumberService implements ComplexNumber {
         return imaginaryPart;
     }
 
-   
+     @Override
+    public ComplexNumber sum(ComplexNumber other) {
+        double real = this.realPart + other.getRealPart();
+        double imaginary = this.imaginaryPart + other.getImaginaryPart();
+        return new ComplexNumberService(real, imaginary);
+    }
+
     @Override
     public String toString() {
-        return "ComplexNumber{" +
+        return "Sum{" +
                 realPart + '+' +
                 imaginaryPart +
                 '}';
     }
 }
-
-
